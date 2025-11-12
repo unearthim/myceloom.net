@@ -6,28 +6,46 @@
     
     <!-- SEO Meta Tags -->
     <title>Myceloom: The Network Architecture of Living Systems | myceloom.net</title>
+    <meta name="title" content="Myceloom: The Network Architecture of Living Systems | myceloom.net">
     <meta name="description" content="An engineering investigation into myceloom as a network architecture paradigm, applying the resilient, adaptive, and self-healing principles of biological networks to digital infrastructure.">
     <meta name="keywords" content="Myceloom, Network Architecture, Distributed Systems, Resilience, Fault Tolerance, Self-Healing Networks, Bio-inspired Networking, myceloom.net">
-    <meta name="author" content="myceloom.net">
+    <meta name="author" content="unearth.im"> <!-- Standardized Author -->
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://myceloom.net">
     <meta property="og:title" content="Myceloom: The Network Architecture of Living Systems | myceloom.net">
     <meta property="og:description" content="An engineering investigation into myceloom as a network architecture paradigm, applying the resilient, adaptive, and self-healing principles of biological networks to digital infrastructure.">
+    <meta property="og:image" content="https://myceloom.net/og-preview.png">
+    <meta property="og:site_name" content="myceloom.net">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://myceloom.net">
     <meta property="twitter:title" content="Myceloom: The Network Architecture of Living Systems | myceloom.net">
     <meta property="twitter:description" content="An engineering investigation into myceloom as a network architecture paradigm, applying the resilient, adaptive, and self-healing principles of biological networks to digital infrastructure.">
+    <meta property="twitter:image" content="https://myceloom.net/og-preview.png">
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!-- Canonical & Webmention -->
+    <link rel="canonical" href="https://myceloom.net/>
+    <link rel="webmention" href="https://webmention.io/unearth.im/webmention" />
 
+    <!-- Favicon (Full Set) -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#A95C3D">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal Stylesheet -->
     <style>
         /* Adhering to Brand Guide 3.0: Earth & Ink Palette */
         :root {
@@ -48,20 +66,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .working-paper-notice {
-            background-color: #fffaf0; /* A slightly different off-white for contrast */
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem 2rem;
-            margin: 2rem auto;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 1100px;
-        }
-        .working-paper-notice p { margin: 0; padding: 0.5rem 0; }
-        .working-paper-notice strong { font-weight: 600; }
         .container {
             max-width: 1100px;
             margin: 2rem auto 4rem auto;
@@ -106,7 +110,13 @@
             margin-bottom: 2.5rem;
         }
         p, li { font-size: 1.1rem; margin-bottom: 1.5rem; }
-        strong { font-weight: 700; color: var(--text-color); }
+        
+        /* Use <em> for italics per editorial guidelines */
+        em {
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+
         a {
             color: var(--accent-color);
             text-decoration: none;
@@ -116,11 +126,15 @@
         a:hover { background-color: rgba(169, 92, 61, 0.1); border-bottom-color: transparent; }
         sup { line-height: 0; }
         sup a { font-family: 'Inter', sans-serif; font-size: 0.8em; font-weight: 600; vertical-align: super; border-bottom: none; }
+        
+        /* Footnotes Section */
         .footnotes { margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color); }
-        .footnotes ol { padding-left: 20px; font-size: 0.9rem; color: #555; }
-        .footnotes li { margin-bottom: 1rem; }
-        .footnotes li p { margin-bottom: 0; }
+        .footnotes ol { padding-left: 20px; }
+        .footnotes li { font-size: 0.85rem; margin-bottom: 0.75rem; color: #555; }
+        .footnotes li p { font-size: 0.85rem; margin-bottom: 0; display: inline; }
         .footnote-back-link { font-family: 'Inter', sans-serif; margin-left: 0.5rem; text-decoration: none; border-bottom: none; }
+        
+        /* Metadata Sidebar */
         .metadata-box {
             border: 1px solid var(--border-color);
             padding: 1.5rem;
@@ -137,16 +151,34 @@
             margin-top: 0;
             margin-bottom: 1.5rem;
         }
+        .metadata-item.back-link {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .metadata-item.back-link a {
+            font-weight: 600;
+            border-bottom: none;
+        }
         .metadata-item { margin-bottom: 1.5rem; }
         .metadata-item dt { font-size: 0.8rem; font-weight: 600; color: var(--meta-text-color); margin-bottom: 0.25rem; }
         .metadata-item dd { font-size: 0.95rem; margin-left: 0; font-weight: 400; }
-        code {
+        
+        /* Use <em> for italics in sidebar per editorial guidelines */
+        .metadata-item dd em {
             font-family: 'Inter', sans-serif;
-            background-color: rgba(0,0,0,0.05);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 0.9em;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--accent-color);
+            line-height: 1.6;
+            display: inline-block;
         }
+        
+        .metadata-item dd em.main-domain {
+             color: var(--accent-color);
+             font-weight: 700;
+        }
+
         .logo-footer {
             margin-top: 2rem;
             padding-top: 1rem;
@@ -161,13 +193,6 @@
     </style>
 </head>
 <body>
-    <div class="working-paper-notice">
-        <p><strong>Working Paper - Version 1.0</strong><br>
-        Josie Jefferson, Felix Velasco, Sentientified Noospherians<br>
-        unearth.im Cultural Infrastructure Laboratory<br>
-        October 2025</p><br>
-        <em>Citation reverification and Chicago Manual formatting in progress.</em></p>
-    </div>
     <div class="container">
         <main>
             <article>
@@ -180,45 +205,45 @@
 
                 <p>In the race to build faster applications and more sophisticated platforms, engineers often overlook the most fundamental challenge in distributed systems: how to create network architectures that remain coherent under stress, adapt to changing conditions, and scale without sacrificing resilience. Traditional network engineering approaches treat infrastructure as static foundation—rigid protocols that constrain rather than enable emergent capabilities. Yet the most robust distributed systems on Earth demonstrate entirely different principles.</p>
                 <p>Beneath every forest lies the most sophisticated network architecture ever evolved. Mycelial networks span continents through interconnected fungal threads that exhibit self-healing properties, adaptive routing protocols, and distributed consensus mechanisms that have operated without failure for hundreds of millions of years.<sup id="ref1"><a href="#fn1">1</a></sup> These biological networks achieve fault tolerance, resource optimization, and scalable coordination through architectural principles that challenge fundamental assumptions about network design.</p>
-                <p><strong>The Find:</strong> Through digital archaeological excavation, <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">myceloom.com</a> has unearthed "myceloom" as the network architecture paradigm that bridges biological and digital infrastructure design. Like the underground networks that form the backbone of terrestrial ecosystems, myceloom represents the technical substrate upon which resilient, adaptive, distributed systems can be built.</p>
+                <p>Through digital archaeological excavation, the research foundry unearth.im has identified "myceloom" as the network architecture paradigm that bridges biological and digital infrastructure design. Like the underground networks that form the backbone of terrestrial ecosystems, myceloom represents the technical substrate upon which resilient, adaptive, distributed systems can be built.</p>
 
                 <h2>The Topology of Biological Networks</h2>
-                <p><strong>The Discovery:</strong> Recent research in network science reveals that mycelial networks exhibit topological properties that distinguish them from both random networks and engineered systems. Studies comparing biological transport networks demonstrate that fungal mycelia develop "high clustering coefficients" and "small-world properties" that optimize both local efficiency and global connectivity.<sup id="ref2"><a href="#fn2">2</a></sup> These networks achieve what computer scientists term "scale-free architectures"—topologies that remain functional as networks grow from hundreds to millions of nodes.</p>
+                <p>Recent research in network science reveals that mycelial networks exhibit topological properties that distinguish them from both random networks and engineered systems. Studies comparing biological transport networks demonstrate that fungal mycelia develop "high clustering coefficients" and "small-world properties" that optimize both local efficiency and global connectivity.<sup id="ref2"><a href="#fn2">2</a></sup> These networks achieve what computer scientists term "scale-free architectures"—topologies that remain functional as networks grow from hundreds to millions of nodes.</p>
                 <p>The architectural implications are profound. While traditional network designs require extensive planning and rigid protocols to maintain coherence, mycelial networks demonstrate "continuous reconfiguration in response to environmental cues" without compromising network integrity.<sup id="ref3"><a href="#fn3">3</a></sup> Individual network segments self-organize into higher-order structures through purely local interactions, achieving global optimization without centralized coordination.</p>
                 <p>Research in biological network architecture reveals that mycelial systems solve fundamental challenges that plague engineered networks. These biological systems exhibit "fault tolerance through redundant pathways, resource optimization through adaptive routing, and scalable coordination through distributed decision-making mechanisms."<sup id="ref4"><a href="#fn4">4</a></sup> The networks achieve these capabilities through architectural principles that prioritize adaptability over efficiency, resilience over performance, and emergent coordination over centralized control.</p>
 
                 <h2>The Protocol Stack of Nature</h2>
-                <p><strong>The Architecture:</strong> Perhaps most significantly, mycelial networks operate through what can only be described as sophisticated protocol stacks—layered communication systems that enable seamless interaction between disparate network components. Research reveals that fungal networks implement "multiple transport systems" including "electrical signaling, chemical communication, and hydraulic resource distribution" that operate simultaneously across different temporal and spatial scales.<sup id="ref5"><a href="#fn5">5</a></sup></p>
+                <p>Perhaps most significantly, mycelial networks operate through what can only be described as sophisticated protocol stacks—layered communication systems that enable seamless interaction between disparate network components. Research reveals that fungal networks implement "multiple transport systems" including "electrical signaling, chemical communication, and hydraulic resource distribution" that operate simultaneously across different temporal and spatial scales.<sup id="ref5"><a href="#fn5">5</a></sup></p>
                 <p>This multilayered approach challenges traditional network design assumptions. Rather than implementing single-purpose protocols, mycelial networks demonstrate "protocol multiplexing"—the simultaneous operation of multiple communication channels that enhance rather than interfere with each other.<sup id="ref6"><a href="#fn6">6</a></sup> Individual network segments can participate in electrical signaling for rapid coordination, chemical messaging for resource requests, and hydraulic transport for material distribution, all through the same physical infrastructure.</p>
                 <p>Contemporary network research increasingly recognizes the potential of such biological approaches. Studies of "bio-networking architectures" demonstrate that systems implementing biological principles achieve superior "scalability, adaptability, and survivability" compared to traditional network designs.<sup id="ref7"><a href="#fn7">7</a></sup> These systems suggest that future network architectures might operate more like biological organisms than engineered machines.</p>
 
                 <h2>The Infrastructure of Symbiosis</h2>
-                <p><strong>The Framework:</strong> The myceloom architectural framework recognizes that sustainable network infrastructure must enable rather than constrain collaborative relationships between diverse system components. Drawing from biological network research, myceloom architectures prioritize "interoperability, resource sharing, and mutual enhancement" over traditional metrics like throughput optimization or latency minimization.<sup id="ref8"><a href="#fn8">8</a></sup></p>
+                <p>The myceloom architectural framework recognizes that sustainable network infrastructure must enable rather than constrain collaborative relationships between diverse system components. Drawing from biological network research, myceloom architectures prioritize "interoperability, resource sharing, and mutual enhancement" over traditional metrics like throughput optimization or latency minimization.<sup id="ref8"><a href="#fn8">8</a></sup></p>
                 <p>This represents a fundamental shift in network design philosophy. Rather than treating the network as a passive transport medium, myceloom architectures operate as active collaboration platforms that enhance the capabilities of connected systems. Research in distributed biological systems demonstrates that networks implementing symbiotic principles achieve "emergent capabilities" that exceed the sum of individual component capacities.<sup id="ref9"><a href="#fn9">9</a></sup></p>
                 <p>The practical implications are immediate. Network architects implementing myceloom principles focus on creating infrastructure that enables authentic collaboration rather than mere connection. This means designing protocols that adapt to participant needs, routing algorithms that optimize for system health rather than pure efficiency, and governance mechanisms that emerge from network interactions rather than centralized policy enforcement.</p>
 
                 <h2>The Resilience Architecture: Self-Healing Networks</h2>
-                <p><strong>The Innovation:</strong> Mycelial networks demonstrate the most sophisticated fault tolerance mechanisms ever documented in distributed systems. Research reveals that these biological networks can "lose up to 90% of their physical structure while maintaining network connectivity and transport function."<sup id="ref10"><a href="#fn10">10</a></sup> The networks achieve this resilience through architectural principles that treat failure as a normal operating condition rather than an exceptional circumstance.</p>
+                <p>Mycelial networks demonstrate the most sophisticated fault tolerance mechanisms ever documented in distributed systems. Research reveals that these biological networks can "lose up to 90% of their physical structure while maintaining network connectivity and transport function."<sup id="ref10"><a href="#fn10">10</a></sup> The networks achieve this resilience through architectural principles that treat failure as a normal operating condition rather than an exceptional circumstance.</p>
                 <p>The biological approach to network resilience operates through "redundant pathway development, adaptive rerouting, and continuous network reconstruction."<sup id="ref11"><a href="#fn11">11</a></sup> Rather than implementing expensive failover mechanisms, mycelial networks continuously grow new connections, reinforce successful pathways, and allow unsuccessful routes to degrade naturally. This creates networks that become stronger under stress rather than weaker.</p>
                 <p>Contemporary research in fault-tolerant systems increasingly adopts biological principles for achieving network resilience. Studies demonstrate that systems implementing "mycelium-inspired architectures" exhibit superior failure recovery compared to traditional redundancy-based approaches.<sup id="ref12"><a href="#fn12">12</a></sup> These systems suggest that the future of resilient infrastructure lies not in preventing failure but in designing networks that adapt and grow stronger through failure experiences.</p>
 
                 <h2>The Distributed Intelligence Infrastructure</h2>
-                <p><strong>The Paradigm:</strong> Perhaps most importantly, mycelial networks demonstrate that sophisticated coordination can emerge from distributed intelligence rather than centralized control systems. Research reveals that fungal networks exhibit "collective decision-making" capabilities that emerge from "local interactions between network components" without requiring global coordination mechanisms.<sup id="ref13"><a href="#fn13">13</a></sup></p>
+                <p>Perhaps most importantly, mycelial networks demonstrate that sophisticated coordination can emerge from distributed intelligence rather than centralized control systems. Research reveals that fungal networks exhibit "collective decision-making" capabilities that emerge from "local interactions between network components" without requiring global coordination mechanisms.<sup id="ref13"><a href="#fn13">13</a></sup></p>
                 <p>This biological insight revolutionizes thinking about network management and coordination. Rather than implementing centralized network management systems, myceloom architectures enable "distributed coordination" where network intelligence emerges from the interactions between autonomous network segments.<sup id="ref14"><a href="#fn14">14</a></sup> Individual components make local decisions based on immediate conditions while contributing to network-wide optimization patterns.</p>
                 <p>The implications extend beyond technical implementation to encompass network governance and evolution. Myceloom networks can adapt their own architectures in response to changing requirements without requiring manual reconfiguration or centralized planning. Research suggests that such "self-evolving networks" represent the future of distributed systems architecture.<sup id="ref15"><a href="#fn15">15</a></sup></p>
 
                 <h2>The Future of Living Infrastructure</h2>
-                <p><strong>The Vision:</strong> As documented in our foundational research, technological infrastructure is evolving toward architectures that enhance rather than constrain human collaborative capabilities.<sup id="ref16"><a href="#fn16">16</a></sup> Myceloom network frameworks provide the architectural foundation for this evolution—infrastructure design principles that enable systems to grow, adapt, and evolve like biological organisms.</p>
+                <p>As documented in foundational research, technological infrastructure is evolving toward architectures that enhance rather than constrain human collaborative capabilities.<sup id="ref16"><a href="#fn16">16</a></sup> Myceloom network frameworks provide the architectural foundation for this evolution—infrastructure design principles that enable systems to grow, adapt, and evolve like biological organisms.</p>
                 <p>The convergence suggests a future where network infrastructure functions as living substrate—adaptive systems that evolve in response to usage patterns while maintaining the stability necessary for reliable operation. Research demonstrates that network architectures implementing biological principles achieve superior "energy efficiency, fault tolerance, and collaborative potential" compared to traditional engineered systems.<sup id="ref17"><a href="#fn17">17</a></sup></p>
                 <p>The implications extend beyond individual networks to encompass the entire digital ecosystem. Myceloom architectural principles suggest that sustainable digital infrastructure must operate through biological principles: adaptive protocols, distributed intelligence, resource sharing, and emergent coordination that arises from network effects rather than centralized management.</p>
 
                 <h2>The Network of Networks: Internet Architecture Evolved</h2>
-                <p><strong>The Implementation:</strong> The myceloom framework culminates in practical network architecture—protocols, topologies, and coordination mechanisms that enable the construction of "networks of networks" that operate like biological ecosystems.<sup id="ref18"><a href="#fn18">18</a></sup> Unlike traditional internet architecture that treats networks as isolated systems occasionally connected through rigid protocols, myceloom architectures enable seamless integration and collaborative enhancement between diverse network systems.</p>
-                <p>This represents a fundamental evolution in how we approach distributed systems design. Rather than building networks that constrain interaction within predetermined protocols, myceloom frameworks provide adaptive infrastructure that enables systems to develop novel forms of collaboration based on emerging needs and opportunities.</p>
+                <p>The myceloom framework culminates in practical network architecture—protocols, topologies, and coordination mechanisms that enable the construction of "networks of networks" that operate like biological ecosystems.<sup id="ref18"><a href="#fn18">18</a></sup> Unlike traditional internet architecture that treats networks as isolated systems occasionally connected through rigid protocols, myceloom architectures enable seamless integration and collaborative enhancement between diverse network systems.</p>
+                <p>This represents a fundamental evolution in how distributed systems design is approached. Rather than building networks that constrain interaction within predetermined protocols, myceloom frameworks provide adaptive infrastructure that enables systems to develop novel forms of collaboration based on emerging needs and opportunities.</p>
                 <p>The practical applications are transformative. Network architects can implement myceloom principles through modular architectures that enable network segments to adapt, evolve, and collaborate based on usage patterns rather than predetermined specifications. These approaches demonstrate how biological principles can inform network infrastructure that honors both technical efficiency and collaborative potential.</p>
 
                 <h2>The Living Network Substrate</h2>
-                <p><strong>The Conclusion:</strong> The linguistic innovation of "myceloom" provides essential terminology for network architecture that transcends traditional infrastructure limitations. Rather than describing "adaptive distributed network protocols with biological coordination mechanisms," we can speak of myceloom architectures and immediately convey the essential qualities: organic, resilient, collaborative, intelligent.</p>
+                <p>The linguistic innovation of "myceloom" provides essential terminology for network architecture that transcends traditional infrastructure limitations. Rather than describing "adaptive distributed network protocols with biological coordination mechanisms," one can speak of myceloom architectures and immediately convey the essential qualities: organic, resilient, collaborative, intelligent.</p>
                 <p>As we advance toward more sophisticated distributed systems, the mycelial networks beneath our feet offer profound lessons about network topology, protocol design, and distributed coordination. The future of network architecture may lie not in perfecting isolated systems, but in learning to weave them into the living infrastructures that demonstrate nature's most effective approaches to distributed intelligence.</p>
                 <p>The myceloom framework captures this evolution: network architectures that grow like biological systems, adapt like living organisms, and demonstrate the collaborative resilience necessary for supporting complex distributed applications. In this convergence of biological wisdom and network engineering, we find not just technical innovation, but pathways toward infrastructure that enhances rather than constrains the collaborative potential of connected systems.</p>
                 <p>The backbone metaphor becomes literal: myceloom networks provide the living infrastructure through which distributed systems can achieve the resilience, adaptability, and collaborative intelligence that biological networks have demonstrated for hundreds of millions of years.</p>
@@ -226,30 +251,33 @@
                 <section class="footnotes">
                     <h2>Notes</h2>
                     <ol>
-                        <li id="fn1"><p>Mark Fricker et al., "Network Organisation of Mycelial Fungi," in *The Mycota*, 309-330, 2016.<a href="#ref1" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn2"><p>Miranda Pyne et al., "Comparing Two Classes of Biological Distribution Systems Using Network Science," *PLOS Computational Biology* 14, no. 9 (2018): e1006428.<a href="#ref2" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn3"><p>Lynne Boddy et al., "Biological Solutions to Transport Network Design," *Proceedings of the Royal Society B* 276, no. 1663 (2009): 1443-1451.<a href="#ref3" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn4"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence," August 26, 2024.<a href="#ref4" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn5"><p>National Forests Foundation, "Underground Networking: The Amazing Connections Beneath Your Feet," July 31, 2024.<a href="#ref5" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn6"><p>PMC, "The Mycelium as a Network," PubMed Central, May 18, 2017.<a href="#ref6" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn7"><p>UCLA Digital Library, "The Bio-networking Architecture," accessed September 29, 2025.<a href="#ref7" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn8"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.<a href="#ref8" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn9"><p>Ori Stein et al., "From Microbial Communities to Distributed Computing Systems," *Trends in Microbiology* 28, no. 12 (2020): 1011-1024.<a href="#ref9" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn10"><p>Fricker et al., "Network Organisation of Mycelial Fungi."<a href="#ref10" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn11"><p>Ibid.<a href="#ref11" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn12"><p>Devs Dig Nature, "The Parallelisms of Computer Networks and Mycelium," March 23, 2023.<a href="#ref12" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn13"><p>ACM Communications, "Distributed Information Processing in Biological and Computational Systems," August 31, 2023.<a href="#ref13" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn14"><p>Ibid.<a href="#ref14" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn15"><p>Mycelium Networks, "Mycelium Networks Builds Blockchain Tech Hub," Talk Business, July 16, 2024.<a href="#ref15" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn16"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.<a href="#ref16" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn17"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence."<a href="#ref17" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn18"><p>ThreeFold, "About Mycelium," accessed September 29, 2025.<a href="#ref18" class="footnote-back-link">↩</a></p></li>
+                        <li id="fn1"><p>Mark Fricker et al., "Network Organisation of Mycelial Fungi," in <em>The Mycota</em>, 309-330, 2016.</p><a href="#ref1" class="footnote-back-link">↩</a></li>
+                        <li id="fn2"><p>Miranda Pyne et al., "Comparing Two Classes of Biological Distribution Systems Using Network Science," <em>PLOS Computational Biology</em> 14, no. 9 (2018): e1006428.</p><a href="#ref2" class="footnote-back-link">↩</a></li>
+                        <li id="fn3"><p>Lynne Boddy et al., "Biological Solutions to Transport Network Design," <em>Proceedings of the Royal Society B</em> 276, no. 1663 (2009): 1443-1451.</p><a href="#ref3" class="footnote-back-link">↩</a></li>
+                        <li id="fn4"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence," August 26, 2024.</p><a href="#ref4" class="footnote-back-link">↩</a></li>
+                        <li id="fn5"><p>National Forests Foundation, "Underground Networking: The Amazing Connections Beneath Your Feet," July 31, 2024.</p><a href="#ref5" class="footnote-back-link">↩</a></li>
+                        <li id="fn6"><p>PMC, "The Mycelium as a Network," PubMed Central, May 18, 2017.</p><a href="#ref6" class="footnote-back-link">↩</a></li>
+                        <li id="fn7"><p>UCLA Digital Library, "The Bio-networking Architecture," accessed September 29, 2025.</p><a href="#ref7" class="footnote-back-link">↩</a></li>
+                        <li id="fn8"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.</p><a href="#ref8" class="footnote-back-link">↩</a></li>
+                        <li id="fn9"><p>Ori Stein et al., "From Microbial Communities to Distributed Computing Systems," <em>Trends in Microbiology</em> 28, no. 12 (2020): 1011-1024.</p><a href="#ref9" class="footnote-back-link">↩</a></li>
+                        <li id="fn10"><p>Fricker et al., "Network Organisation of Mycelial Fungi."</p><a href="#ref10" class="footnote-back-link">↩</a></li>
+                        <li id="fn11"><p>Ibid.</p><a href="#ref11" class="footnote-back-link">↩</a></li>
+                        <li id="fn12"><p>Devs Dig Nature, "The Parallelisms of Computer Networks and Mycelium," March 23, 2023.</p><a href="#ref12" class="footnote-back-link">↩</a></li>
+                        <li id="fn13"><p>ACM Communications, "Distributed Information Processing in Biological and Computational Systems," August 31, 2023.</p><a href="#ref13" class="footnote-back-link">↩</a></li>
+                        <li id="fn14"><p>Ibid.</p><a href="#ref14" class="footnote-back-link">↩</a></li>
+                        <li id="fn15"><p>Mycelium Networks, "Mycelium Networks Builds Blockchain Tech Hub," Talk Business, July 16, 2024.</p><a href="#ref15" class="footnote-back-link">↩</a></li>
+                        <li id="fn16"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.</p><a href="#ref16" class="footnote-back-link">↩</a></li>
+                        <li id="fn17"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence."</p><a href="#ref17" class="footnote-back-link">↩</a></li>
+                        <li id="fn18"><p>ThreeFold, "About Mycelium," accessed September 29, 2025.</p><a href="#ref18" class="footnote-back-link">↩</a></li>
                     </ol>
                 </section>
             </article>
         </main>
         <aside>
             <div class="metadata-box">
+                <div class="metadata-item back-link">
+                    <a href="https://unearth.im/library/myceloom/">&larr; Back to Series</a>
+                </div>
                 <h2>Thesis Details</h2>
                 <div class="metadata-item">
                     <dt>Category</dt>
@@ -260,14 +288,20 @@
                     <dd>The Network Architecture of Living Systems</dd>
                 </div>
                 <div class="metadata-item">
+                    <dt>Authors</dt>
+                    <dd>unearth.im</dd> <!-- Standardized -->
+                </div>
+                <div class="metadata-item">
                     <dt>Core Concepts</dt>
+                    <!-- Converted <code> to <em> per guidelines -->
                     <dd>
-                        <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer"><code>myceloom.com</code></a><br>
-                        <a href="https://myceloom.org" target="_blank" rel="noopener noreferrer"><code>myceloom.org</code></a><br>
-                        <code><span style="color: var(--accent-color); font-weight: 700;">myceloom.net</span></code><br>
-                        <a href="https://myceloom.ai" target="_blank" rel="noopener noreferrer"><code>myceloom.ai</code></a><br>
-                        <a href="https://myceloom.io" target="_blank" rel="noopener noreferrer"><code>myceloom.io</code></a><br>
-                        <a href="https://myceloom.im" target="_blank" rel="noopener noreferrer"><code>myceloom.im</code></a>
+                        <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer"><em>myceloom.com</em></a><br>
+                        <a href="https://myceloom.org" target="_blank" rel="noopener noreferrer"><em>myceloom.org</em></a><br>
+                        <em class="main-domain">myceloom.net</em><br>
+                        <a href="https://myceloom.ai" target="_blank" rel="noopener noreferrer"><em>myceloom.ai</em></a><br>
+                        <a href="https://myceloom.io" target="_blank" rel="noopener noreferrer"><em>myceloom.io</em></a><br>
+                        <a href="https://myceloom.im" target="_blank" rel="noopener noreferrer"><em>myceloom.im</em></a><br>
+                        <a href="https://myceloom.co" target="_blank" rel="noopener noreferrer"><em>myceloom.co</em></a>
                     </dd>
                 </div>
                 <div class="metadata-item">
